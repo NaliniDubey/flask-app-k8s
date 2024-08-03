@@ -116,8 +116,10 @@ kubectl expose service prometheus-server --type=NodePort --target-port=9090 --na
 kubectl expose service grafana --type=NodePort --target-port=3000 --name=grafana-ext
 kubectl expose service prometheus-kube-state-metrics --type=NodePort --target-port=8080 --name=prometheus-kube-state-metrics-ext
 ```
-Access Grafana
-After accessing Grafana, add Prometheus as a data source and update the port. Create a dashboard with template 3662.
+Access Grafana and Create Dashboard:
+
+After accessing Grafana, add Prometheus as a data source and update the Prometheus server URL. You can get the port by running "kubectl get svc" and look for service prometheus-server-ext.
+Create a dashboard by importing dashboard and loading 3662. You can also create your custom dashboard. 
 
 Update Prometheus Configuration
 Update the scrape_configs in the Prometheus configuration to include kube-state-metrics:
