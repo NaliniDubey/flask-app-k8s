@@ -16,7 +16,7 @@ This project uses Flask to respond to an HTTP GET request and returns the follow
 
 ### 1. Navigate to the Project Directory
 ```shell
-cd /path/to/AdjustProject/AdjustProject
+cd /path/to/Project
 ```
 ### 2. Build the Docker Image and Push to Docker Hub
 a. Build the Docker image:
