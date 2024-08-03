@@ -38,7 +38,7 @@ i. Change the image name to the one defined above:
 ```yaml
 containers:
   - name: flask-app-container
-    image: <your-dockerhub-username>/<image-name>:latest
+    image: <your-dockerhub-username>/<image-name>
 ```
 ii. Add Basic Authentication (Optional):
 Base64 encode your username and password. The default username/password is user/user:
@@ -53,7 +53,7 @@ b. Update ingress.yaml:
 Change the host to your preferred DNS:
 ```yaml
 rules:
-  - host: <your-preferred-dns>
+  - host: <your-preferred-host-dns>
  ```
 ### 4. Apply the Kubernetes Configurations
 Ensure you are in the directory containing your Kubernetes configuration files.
@@ -62,12 +62,12 @@ kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
 kubectl apply -f k8s/ingress.yaml
 ```
-Note: Make sure you have an Nginx controller installed.
+Note: Make sure you have an Nginx controller.
 
 ### 5. Access the Application
 The application should be available at:
 ```sh
-http://<host-dns>/info
+http://<your-preferred-host-dns>/info
 ```
 
 ## Testing the Code with Minikube
@@ -88,14 +88,17 @@ sudo nano /etc/hosts
 ```
 Add the line:
 ```plaintext
-<minikube-ip> <your-preferred-dns>
+<minikube-ip> <your-preferred-host-dns>
 ```
 4. Access the Application
 You should be able to access the application at:
 ```sh
-http://<your-preferred-dns>/info
+http://<your-preferred-host-dns>/info
 ```
-
+Make sure you have enabled ingress before running scripts.
+```sh
+minikube addons enable ingress
+```
 ## Stretch Goals
 I have set up Prometheus and Grafana in Minikube. Use the following commands to install and expose these services:
 
