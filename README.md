@@ -37,7 +37,7 @@ a. Update deployment.yaml:
 i. Change the image name to the one defined above:
 ```yaml
 containers:
-  - name: adjust-container
+  - name: flask-app-container
     image: <your-dockerhub-username>/<image-name>:latest
 ```
 ii. Add Basic Authentication (Optional):
